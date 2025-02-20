@@ -1,16 +1,25 @@
 import { RadioStation } from "../../interfaces/RadioStation";
 import playIcon from "../../assets/play-solid.svg";
+import { Dispatch, SetStateAction } from "react";
 
 interface RadioStationItemProps {
   station: RadioStation;
   index: number;
+  setSelectedstation: Dispatch<SetStateAction<RadioStation>>;
 }
 
-const RadioStationItem = ({ station, index }: RadioStationItemProps) => {
+const RadioStationItem = ({
+  station,
+  index,
+  setSelectedstation,
+}: RadioStationItemProps) => {
   const { name, votes, country, favicon } = station;
 
   return (
-    <div className="flex gap-3 p-2 hover:bg-gray-800 rounded-lg group">
+    <div
+      className="flex gap-3 p-2 hover:bg-gray-800 rounded-lg group cursor-pointer"
+      onClick={() => setSelectedstation(station)}
+    >
       <div className="w-5 flex justify-center items-center relative">
         <p className="inline group-hover:hidden text-white">{index + 1}</p>
 

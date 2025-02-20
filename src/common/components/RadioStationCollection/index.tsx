@@ -1,14 +1,17 @@
+import { Dispatch, SetStateAction } from "react";
 import { RadioStation } from "../../interfaces/RadioStation";
 import RadioStationItem from "../RadioStationItem";
 
 interface RadioStationCollectionProps {
   stations: RadioStation[];
   isLoading: boolean;
+  setSelectedstation: Dispatch<SetStateAction<RadioStation>>;
 }
 
 const RadioStationCollection = ({
   stations,
   isLoading,
+  setSelectedstation,
 }: RadioStationCollectionProps) => {
   if (isLoading) {
     return (
@@ -38,7 +41,11 @@ const RadioStationCollection = ({
   }
 
   return stations.map((station, index) => (
-    <RadioStationItem station={station} index={index} />
+    <RadioStationItem
+      setSelectedstation={setSelectedstation}
+      station={station}
+      index={index}
+    />
   ));
 };
 
