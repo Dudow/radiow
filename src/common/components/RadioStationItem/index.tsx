@@ -34,9 +34,9 @@ const RadioStationItem = ({
           <img src={favicon} alt="station favicon" className="w-full" />
         )}
       </div>
-      <div className="flex flex-col justify-evenly">
-        <p className="font-semibold">{name}</p>
-        <p className="text-sm">
+      <div className="flex max-w-8/10 flex-col justify-evenly">
+        <p className="font-semibold truncate">{name}</p>
+        <p className="text-sm truncate overflow-hidden text-ellipsis">
           {country ? country + " • " : ""} {votes} votes
         </p>
       </div>
