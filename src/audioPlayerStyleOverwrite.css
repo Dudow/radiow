@@ -8,6 +8,7 @@
 .rhap_controls-section {
   display: flex;
   justify-content: center;
+  margin-top: 0 !important;
 }
 
 .rhap_progress-section {
