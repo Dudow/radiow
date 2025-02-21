@@ -4,6 +4,7 @@ import addIcon from "../../assets/plus-circle.svg";
 import removeIcon from "../../assets/minus-circle.svg";
 import { Dispatch, SetStateAction } from "react";
 import { useFavoriteContext } from "../../hooks/useFavoriteContext";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 interface RadioStationItemProps {
   station: RadioStation;
@@ -19,6 +20,7 @@ const RadioStationItem = ({
   const { name, votes, country, favicon } = station;
   const { setFavoriteStations, filteredFavoriteStations } =
     useFavoriteContext();
+  const { saveFavorites } = useLocalStorage();
 
   const alreadyAdded = filteredFavoriteStations.find(
     (favoritedStation) => favoritedStation.stationuuid === station.stationuuid
@@ -30,11 +32,17 @@ const RadioStationItem = ({
         (favoritedStation) =>
           favoritedStation.stationuuid !== alreadyAdded.stationuuid
       );
-
+      saveFavorites(newFavorites);
       return setFavoriteStations(newFavorites);
     }
 
-    setFavoriteStations((prev) => [...prev, station]);
+    setFavoriteStations((prev) => {
+      const newFavoriteStations = [...prev, station];
+
+      saveFavorites(newFavoriteStations);
+
+      return newFavoriteStations;
+    });
   };
 
   return (
