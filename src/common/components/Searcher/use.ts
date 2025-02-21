@@ -33,6 +33,7 @@ export const useSearcher = () => {
 
       setSearchQuery((prev) => ({
         ...prev,
+        ["name"]: "",
         ["country"]: e.target.value,
       }));
     },
@@ -50,6 +51,7 @@ export const useSearcher = () => {
 
       setSearchQuery((prev) => ({
         ...prev,
+        ["name"]: "",
         ["language"]: e.target.value,
       }));
     },
