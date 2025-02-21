@@ -3,8 +3,8 @@ import playIcon from "../../assets/play-solid.svg";
 import addIcon from "../../assets/plus-circle.svg";
 import removeIcon from "../../assets/minus-circle.svg";
 import { Dispatch, SetStateAction } from "react";
-import { useFavoriteContext } from "../../hooks/useFavoriteContext";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useFavoriteContext } from "../../contexts/FavoritesContext/FavoritesContext";
 
 interface RadioStationItemProps {
   station: RadioStation;

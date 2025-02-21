@@ -1,4 +1,4 @@
-import { useFavoriteContext } from "../../hooks/useFavoriteContext";
+import { useFavoriteContext } from "../../contexts/FavoritesContext/FavoritesContext";
 
 export const useFavoriteRadioStationCollection = () => {
   const { filteredFavoriteStations } = useFavoriteContext();

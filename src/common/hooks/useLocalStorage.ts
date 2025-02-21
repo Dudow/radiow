@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { RadioStation } from "../interfaces/RadioStation";
-import { useFavoriteContext } from "./useFavoriteContext";
+import { useFavoriteContext } from "../contexts/FavoritesContext/FavoritesContext";
 
 export const useLocalStorage = () => {
   const { setFavoriteStations } = useFavoriteContext();
