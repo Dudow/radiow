@@ -1,4 +1,5 @@
 import playIcon from "../../assets/play-solid.svg";
+import stopIcon from "../../assets/stop-solid.svg";
 import addIcon from "../../assets/plus-circle.svg";
 import removeIcon from "../../assets/minus-circle.svg";
 import disk from "../../assets/compact-disc-solid.svg";
@@ -51,12 +52,21 @@ const RadioStationItem = ({ station, index }: RadioStationItemProps) => {
       <div className="w-5 flex justify-center items-center relative">
         <p className="inline group-hover:hidden text-white">{index + 1}</p>
 
-        <img
-          onClick={() => setSelectedstation(station)}
-          src={playIcon}
-          alt=""
-          className="invert absolute w-3 hidden group-hover:inline cursor-pointer"
-        />
+        {selectedStation.stationuuid === station.stationuuid ? (
+          <img
+            onClick={() => setSelectedstation({} as RadioStation)}
+            src={stopIcon}
+            alt=""
+            className="invert absolute w-3 hidden group-hover:inline cursor-pointer"
+          />
+        ) : (
+          <img
+            onClick={() => setSelectedstation(station)}
+            src={playIcon}
+            alt=""
+            className="invert absolute w-3 hidden group-hover:inline cursor-pointer"
+          />
+        )}
       </div>
       <div className="w-12 h-12 bg-gradient-to-br from-green-900 to-green-600  rounded p-1 flex justify-center items-center ">
         <img
