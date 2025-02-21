@@ -17,6 +17,7 @@ const FavoriteRadioStationCollection = ({
       setSelectedstation={setSelectedstation}
       station={station}
       index={index}
+      key={station.stationuuid}
     />
   ));
 };
