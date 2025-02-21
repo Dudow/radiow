@@ -5,7 +5,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: light;
   background-color: #000;
   color: #fff;
 
@@ -34,4 +34,9 @@ select {
 
 .transparent-background {
   background-color: rgba(0, 0, 0, 0.14);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent;
 }

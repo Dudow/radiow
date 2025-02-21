@@ -68,17 +68,19 @@ const RadioStationCollection = () => {
         </select>
       </div>
 
-      {isLoading ? (
-        <Loading />
-      ) : (
-        stations.map((station, index) => (
-          <RadioStationItem
-            station={station}
-            index={index}
-            key={station.stationuuid}
-          />
-        ))
-      )}
+      <div className="overflow-y-scroll h-8/10">
+        {isLoading ? (
+          <Loading />
+        ) : (
+          stations.map((station, index) => (
+            <RadioStationItem
+              station={station}
+              index={index}
+              key={station.stationuuid}
+            />
+          ))
+        )}
+      </div>
     </div>
   );
 };

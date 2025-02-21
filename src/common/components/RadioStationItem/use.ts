@@ -4,7 +4,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { RadioStation } from "../../interfaces/RadioStation";
 
 export const useRadioStationItem = (station: RadioStation) => {
-  const { setFavoriteStations, filteredFavoriteStations, favoriteStations } =
+  const { setFavoriteStations, filteredFavoriteStations } =
     useFavoriteContext();
   const { saveFavorites } = useLocalStorage();
   const { selectedStation, setSelectedstation } = useSelectedSongContext();
@@ -23,8 +23,6 @@ export const useRadioStationItem = (station: RadioStation) => {
       saveFavorites(newFavorites);
       return setFavoriteStations(newFavorites);
     }
-
-    if (favoriteStations.length === 10) return;
 
     setFavoriteStations((prev) => {
       const newFavoriteStations = [...prev, station];
