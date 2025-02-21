@@ -10,9 +10,9 @@ interface FavoriteRadioStationCollectionProps {
 const FavoriteRadioStationCollection = ({
   setSelectedstation,
 }: FavoriteRadioStationCollectionProps) => {
-  const { favoriteStations } = useFavoriteRadioStationCollection();
+  const { filteredFavoriteStations } = useFavoriteRadioStationCollection();
 
-  return favoriteStations.map((station, index) => (
+  return filteredFavoriteStations.map((station, index) => (
     <RadioStationItem
       setSelectedstation={setSelectedstation}
       station={station}

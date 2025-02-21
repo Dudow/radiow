@@ -17,15 +17,16 @@ const RadioStationItem = ({
   setSelectedstation,
 }: RadioStationItemProps) => {
   const { name, votes, country, favicon } = station;
-  const { setFavoriteStations, favoriteStations } = useFavoriteContext();
+  const { setFavoriteStations, filteredFavoriteStations } =
+    useFavoriteContext();
 
-  const alreadyAdded = favoriteStations.find(
+  const alreadyAdded = filteredFavoriteStations.find(
     (favoritedStation) => favoritedStation.stationuuid === station.stationuuid
   );
 
   const handleFavorite = () => {
     if (alreadyAdded) {
-      const newFavorites = favoriteStations.filter(
+      const newFavorites = filteredFavoriteStations.filter(
         (favoritedStation) =>
           favoritedStation.stationuuid !== alreadyAdded.stationuuid
       );
@@ -54,7 +55,7 @@ const RadioStationItem = ({
         )}
       </div>
 
-      <div className="flex max-w-8/10 flex-col justify-evenly">
+      <div className="flex max-w-7/10 flex-col justify-evenly">
         <p className={`font-semibold truncate`}>{name}</p>
         <p className="text-sm truncate overflow-hidden text-ellipsis">
           {country ? country + " • " : ""} {votes} votes

@@ -1,9 +1,9 @@
 import { useFavoriteContext } from "../../hooks/useFavoriteContext";
 
 export const useFavoriteRadioStationCollection = () => {
-  const { favoriteStations } = useFavoriteContext();
+  const { filteredFavoriteStations } = useFavoriteContext();
 
   return {
-    favoriteStations,
+    filteredFavoriteStations,
   };
 };
