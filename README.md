@@ -9,14 +9,44 @@ O Radiow é um projeto que possibilita que o usuário busque rádios de qualquer
 ### Stack
 
 - ReactJS
+
 - Axios
+
 - TailwindCSS
+
 - react-h5-audio-player (audio player)
+
 - TypeScript
 
-### Antes de começar
+- React Context
 
-- Documentar todo o processo de investigação para o desenvolvimento da atividade (README.md no seu repositório); os resultados destas tarefas são tão importantes do que o seu processo de pensamento e decisões à medida que as completa, por isso tente documentar e apresentar os seus hipóteses e decisões na medida do possível.
+### Como usar
+
+- Baixe o repositório em https://github.com/Dudow/radiow.
+- Execute `yarn` para baixar todas as dependências.
+- Execute `yarn dev` para iniciar o projeto.
+
+### Documentação
+
+- Logo no começo eu percebi que seria necessário o uso de Context para controlar os estados, também seria necessário trabalhar com localStorage para salvar os dados.
+
+- Comecei estudando a API, ela tem uma documentação suficientemente boa, porém, poderia ser mais clara e centralizada, falta muita informação.
+
+- Criei os services para controlar todas as rotas da api (stations, countries, languages, votes, tags) com os possíveis parâmetros e todas as interfaces.
+
+- Criei a listagem de estações e os componentes para mostrá-las, adicionei o loading e estilizei.
+
+- Criei o primeiro context, que foi para controlar os favoritos e adicionei no localStorage para salvar os dados
+
+- Adicionei o filtro entre as estações favoritas.
+
+- Criei o componente de busca de estações e a listagem das estações filtradas e criei o contexto para cuidar dos filtros e das estações filtradas.
+
+- Criei o contexto para lidar da estação que está tocando, com isso eu pude adicionar estilização e o botão do stop.
+
+- Adicionei o filtro de país e linguagem.
+
+- Adicionei o botão de stop.
 
 ## Obrigatórios
 
@@ -62,15 +92,13 @@ Além do desafio proposto temos alguns diferenciais:
 
 - Uma descrição sobre o projeto em frase ✅
 
-- Deve conter uma lista com linguagem, framework e/ou tecnologias usadas
+- Deve conter uma lista com linguagem, framework e/ou tecnologias usadas ✅
 
-- Como instalar e usar o projeto (instruções)
+- Como instalar e usar o projeto (instruções) ✅
 
 - Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore) ✅
 
-- Se está usando github pessoal, referencie que é um challenge by coodesh:
-
-> This is a challenge by [Coodesh](https://coodesh.com/)
+- Se está usando github pessoal, referencie que é um challenge by coodesh: ✅
 
 ## Finalização e Instruções para a Apresentação
 
