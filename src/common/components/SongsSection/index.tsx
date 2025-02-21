@@ -2,11 +2,8 @@ import FavoriteRadioStationCollection from "../FavoriteRadioStationCollection";
 import RadioStationCollection from "../RadioStationCollection";
 import library from "../../assets/library.svg";
 import { FavoritesSearcher } from "../FavoritesSearcher";
-import { useSelectedSongContext } from "../../contexts/SelectedSongContext/SelectedSongContext";
 
 export const SongsSection: React.FC = () => {
-  const { setSelectedstation } = useSelectedSongContext();
-
   return (
     <div className="flex w-full h-10/10 gap-2 px-2">
       <div className="w-10/10 max-w-120 h-10/10 rounded-lg bg-zinc-950 p-2">
@@ -17,11 +14,9 @@ export const SongsSection: React.FC = () => {
         <div className="p-2">
           <FavoritesSearcher />
         </div>
-        <FavoriteRadioStationCollection
-          setSelectedstation={setSelectedstation}
-        />
+        <FavoriteRadioStationCollection />
       </div>
-      <RadioStationCollection setSelectedstation={setSelectedstation} />
+      <RadioStationCollection />
     </div>
   );
 };
