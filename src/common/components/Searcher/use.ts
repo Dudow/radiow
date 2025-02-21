@@ -9,7 +9,7 @@ export const useSearcher = () => {
   const { country, name, language } = searchQuery;
 
   const resetFilters = () => {
-    setSearchQuery({ country: "", name: "", language: "" });
+    setSearchQuery({ country: "", name: "", language: "", page: 0 });
   };
 
   const handleChangeName = useCallback(
@@ -56,6 +56,16 @@ export const useSearcher = () => {
     [setSearchQuery]
   );
 
+  const handleChangePage = useCallback(
+    (page: number) => {
+      setSearchQuery((prev) => ({
+        ...prev,
+        ["page"]: page,
+      }));
+    },
+    [setSearchQuery]
+  );
+
   useEffect(() => {
     setIsLoading(true);
     getRadioStations(name, country, language).then((res) => {
@@ -69,6 +79,7 @@ export const useSearcher = () => {
     handleChangeName,
     handleChangeLanguage,
     resetFilters,
+    handleChangePage,
     searchQuery,
   };
 };

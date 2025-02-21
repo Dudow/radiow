@@ -5,7 +5,7 @@ import { SongsSection } from "./common/components/SongsSection";
 import { SelectedSongContextProvider } from "./common/contexts/SelectedSongContext/SelectedSongContextProvider";
 import { AudioPlayerSection } from "./common/components/AudioPlayerSection";
 
-import "./App.css";
+import "./common/styles/App.css";
 
 function App() {
   return (
