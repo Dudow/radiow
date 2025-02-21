@@ -1,6 +1,6 @@
 import { useSelectedSongContext } from "../../contexts/SelectedSongContext/SelectedSongContext";
 import "react-h5-audio-player/lib/styles.css";
-import "../../..//audioPlayerStyleOverwrite.css";
+import "../../styles/audioPlayerStyleOverwrite.css";
 import AudioPlayer from "react-h5-audio-player";
 
 export const AudioPlayerSection: React.FC = () => {
