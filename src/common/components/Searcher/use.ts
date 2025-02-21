@@ -50,7 +50,7 @@ export const useSearcher = () => {
 
       setSearchQuery((prev) => ({
         ...prev,
-        ["language"]: e.target.value,
+        ["language"]: e.target.value.toLocaleLowerCase(),
       }));
     },
     [setSearchQuery]

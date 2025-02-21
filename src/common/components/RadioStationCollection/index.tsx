@@ -13,8 +13,12 @@ const RadioStationCollection = () => {
   const [countries, setCountries] = useState([] as Country[]);
   const [languages, setLanguages] = useState([] as Language[]);
 
-  const { handleChangeCountry, handleChangeLanguage, resetFilters } =
-    useSearcher();
+  const {
+    handleChangeCountry,
+    handleChangeLanguage,
+    resetFilters,
+    searchQuery,
+  } = useSearcher();
 
   useEffect(() => {
     getCountries().then((res) => setCountries(res));
@@ -40,6 +44,7 @@ const RadioStationCollection = () => {
           className=" text-sm rounded-full w-50 p-2.5 transparent-background
   placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
           onChange={(e) => handleChangeCountry(e)}
+          value={searchQuery.country}
         >
           <option>Country</option>;
           {countries.map((country) => {
@@ -50,6 +55,7 @@ const RadioStationCollection = () => {
           id="countries"
           className=" text-sm rounded-full  w-50 p-2.5 transparent-background  placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
           onChange={(e) => handleChangeLanguage(e)}
+          value={searchQuery.language}
         >
           <option>Language</option>;
           {languages.map((language) => {
