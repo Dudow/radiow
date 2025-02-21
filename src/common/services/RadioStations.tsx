@@ -17,7 +17,7 @@ export const getRadioStations = async (
         offset: 0,
         name: name || "",
         country: country || "",
-        language: language || "",
+        language: language?.toLowerCase() || "",
       },
     }
   );
