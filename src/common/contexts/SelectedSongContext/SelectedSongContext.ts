@@ -10,7 +10,7 @@ export const SelectedSongContext = createContext<SelectedSongContextProps>(
   {} as SelectedSongContextProps
 );
 
-export const useFavoriteContext = () => {
+export const useSelectedSongContext = () => {
   const context = useContext(SelectedSongContext);
 
   if (context === undefined) {
