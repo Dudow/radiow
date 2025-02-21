@@ -20,11 +20,17 @@ O Radiow é um projeto que possibilita que o usuário busque rádios de qualquer
 
 - React Context
 
+- Serve
+
 ### Como usar
 
 - Baixe o repositório em https://github.com/Dudow/radiow.
 - Execute `yarn` para baixar todas as dependências.
 - Execute `yarn dev` para iniciar o projeto.
+
+### Como usar (Docker)
+
+- Execute `yarn docker`
 
 ### Documentação
 
