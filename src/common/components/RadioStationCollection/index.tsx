@@ -1,15 +1,7 @@
-import { Dispatch, SetStateAction } from "react";
-import { RadioStation } from "../../interfaces/RadioStation";
 import RadioStationItem from "../RadioStationItem";
 import { useStationsContext } from "../../contexts/StationsContext/StationsContext";
 
-interface RadioStationCollectionProps {
-  setSelectedstation: Dispatch<SetStateAction<RadioStation>>;
-}
-
-const RadioStationCollection = ({
-  setSelectedstation,
-}: RadioStationCollectionProps) => {
+const RadioStationCollection = () => {
   const { isLoading, stations } = useStationsContext();
 
   if (isLoading) {
@@ -43,7 +35,6 @@ const RadioStationCollection = ({
     <div className="relative flex w-10/10 flex-col bg-gradient-to-b from-violet-900 to-zinc-950 rounded-lg p-4">
       {stations.map((station, index) => (
         <RadioStationItem
-          setSelectedstation={setSelectedstation}
           station={station}
           index={index}
           key={station.stationuuid}
