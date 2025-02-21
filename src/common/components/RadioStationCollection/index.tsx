@@ -53,7 +53,7 @@ const RadioStationCollection = () => {
         </select>
         <select
           id="countries"
-          className=" text-sm rounded-full  w-50 p-2.5  placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
+          className=" text-sm rounded-full  w-50 p-2.5 transparent-background placeholder-gray-400 text-white focus:ring-blue-500 focus:bg-purple-950 focus:border-blue-500 cursor-pointer"
           onChange={(e) => handleChangeLanguage(e)}
           value={searchQuery.language}
         >
