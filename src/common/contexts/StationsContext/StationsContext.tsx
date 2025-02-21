@@ -1,12 +1,13 @@
 import { createContext, useContext } from "react";
 import { RadioStation } from "../../interfaces/RadioStation";
+import { SearchQueryType } from "../../interfaces/searchQuery";
 
 interface StationsContextProps {
   stations: RadioStation[];
-  searchQuery: string;
+  searchQuery: SearchQueryType;
   isLoading: boolean;
   setStations: React.Dispatch<React.SetStateAction<RadioStation[]>>;
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+  setSearchQuery: React.Dispatch<React.SetStateAction<SearchQueryType>>;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
