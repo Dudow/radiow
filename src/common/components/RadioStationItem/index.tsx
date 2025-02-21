@@ -6,9 +6,7 @@ import disk from "../../assets/compact-disc-solid.svg";
 import volume from "../../assets/volume-high-solid.svg";
 
 import { RadioStation } from "../../interfaces/RadioStation";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { useFavoriteContext } from "../../contexts/FavoritesContext/FavoritesContext";
-import { useSelectedSongContext } from "../../contexts/SelectedSongContext/SelectedSongContext";
+import { useRadioStationItem } from "./use";
 
 interface RadioStationItemProps {
   station: RadioStation;
@@ -18,34 +16,13 @@ interface RadioStationItemProps {
 const RadioStationItem = ({ station, index }: RadioStationItemProps) => {
   const { name, votes, country, favicon } = station;
 
-  const { setFavoriteStations, filteredFavoriteStations } =
-    useFavoriteContext();
-  const { saveFavorites } = useLocalStorage();
-  const { selectedStation, setSelectedstation } = useSelectedSongContext();
-
-  const alreadyAdded = filteredFavoriteStations.find(
-    (favoritedStation) => favoritedStation.stationuuid === station.stationuuid
-  );
-  const isSelectedStation = selectedStation.stationuuid === station.stationuuid;
-
-  const handleFavorite = () => {
-    if (alreadyAdded) {
-      const newFavorites = filteredFavoriteStations.filter(
-        (favoritedStation) =>
-          favoritedStation.stationuuid !== alreadyAdded.stationuuid
-      );
-      saveFavorites(newFavorites);
-      return setFavoriteStations(newFavorites);
-    }
-
-    setFavoriteStations((prev) => {
-      const newFavoriteStations = [...prev, station];
-
-      saveFavorites(newFavoriteStations);
-
-      return newFavoriteStations;
-    });
-  };
+  const {
+    selectedStation,
+    setSelectedstation,
+    handleFavorite,
+    isSelectedStation,
+    alreadyAdded,
+  } = useRadioStationItem(station);
 
   return (
     <div className="flex gap-3 p-2 hover:bg-gray-800 rounded-lg group ">
