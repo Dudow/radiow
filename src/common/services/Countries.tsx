@@ -2,7 +2,7 @@ import { Country } from "../interfaces/Country";
 import { radioBrowserApi } from "./radioBrowserApi";
 
 const getCountries = async () => {
-  const response = await radioBrowserApi.get<Country>("countries", {
+  const response = await radioBrowserApi.get<Country[]>("countries", {
     params: {
       limit: 10,
       order: "stationcount",
