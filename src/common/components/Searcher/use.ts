@@ -6,23 +6,53 @@ export const useSearcher = () => {
   const { setIsLoading, setStations, setSearchQuery, searchQuery } =
     useStationsContext();
 
-  const handleChange = useCallback(
+  const { country, name } = searchQuery;
+
+  const resetFilters = () => {
+    setSearchQuery({ country: "", name: "" });
+  };
+
+  const handleChangeName = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      setSearchQuery(e.target.value);
+      setSearchQuery((prev) => ({
+        ...prev,
+        ["name"]: e.target.value,
+      }));
     },
     [setSearchQuery]
   );
 
+  const handleChangeCountry = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      if (e.target.value === "Country") {
+        return setSearchQuery((prev) => ({
+          ...prev,
+          ["country"]: "",
+        }));
+      }
+
+      setSearchQuery((prev) => ({
+        ...prev,
+        ["country"]: e.target.value,
+      }));
+    },
+    [setSearchQuery]
+  );
+
+  console.log("aaaaaaa");
+
   useEffect(() => {
     setIsLoading(true);
-    getRadioStations(searchQuery).then((res) => {
+    getRadioStations(name, country).then((res) => {
       setStations(res);
       setIsLoading(false);
     });
-  }, [searchQuery, setIsLoading, setStations]);
+  }, [country, name, searchQuery, setIsLoading, setStations]);
 
   return {
-    handleChange,
+    handleChangeCountry,
+    handleChangeName,
+    resetFilters,
     searchQuery,
   };
 };

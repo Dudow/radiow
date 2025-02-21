@@ -13,9 +13,11 @@ export const StationsContextProvider: React.FC<
   const [stations, setStations] = useState<RadioStation[]>(
     [] as RadioStation[]
   );
-  const [searchQuery, setSearchQuery] = useState<SearchQueryType>(
-    {} as SearchQueryType
-  );
+  const [searchQuery, setSearchQuery] = useState<SearchQueryType>({
+    country: "",
+    name: "",
+  } as SearchQueryType);
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   return (
