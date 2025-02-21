@@ -1,7 +1,7 @@
 import { RadioStation } from "../interfaces/RadioStation";
 import { radioBrowserApi } from "./radioBrowserApi";
 
-export const getRadioStations = async (name?: string) => {
+export const getRadioStations = async (name?: string, country?: string) => {
   const response = await radioBrowserApi.get<RadioStation[]>(
     "stations/search",
     {
@@ -12,6 +12,7 @@ export const getRadioStations = async (name?: string) => {
         hidebroken: "true",
         offset: 0,
         name: name || "",
+        country: country || "",
       },
     }
   );
