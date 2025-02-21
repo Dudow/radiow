@@ -4,7 +4,7 @@ import { radioBrowserApi } from "./radioBrowserApi";
 const getLanguages = async () => {
   const response = await radioBrowserApi.get<Language[]>("languages", {
     params: {
-      limit: 100,
+      limit: 15,
       order: "stationcount",
       reverse: "true",
       hidebroken: "true",

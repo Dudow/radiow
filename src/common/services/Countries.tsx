@@ -4,7 +4,7 @@ import { radioBrowserApi } from "./radioBrowserApi";
 const getCountries = async () => {
   const response = await radioBrowserApi.get<Country[]>("countries", {
     params: {
-      limit: 10,
+      limit: 15,
       order: "stationcount",
       reverse: "true",
       hidebroken: "true",

@@ -16,6 +16,7 @@ export const StationsContextProvider: React.FC<
   const [searchQuery, setSearchQuery] = useState<SearchQueryType>({
     country: "",
     name: "",
+    language: "",
   } as SearchQueryType);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
